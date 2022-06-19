@@ -3,9 +3,15 @@ package com.example.code_quiz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -88,6 +94,27 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        private void showbottomsheet(){
+            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MainActivity.this);
+            View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.score_sheet,(LinearLayout)findViewById(R.id.llscore));
+            TextView scoreTV=bottomSheetView.findViewById((R.id.llscore));
+            Button restartquizbtn = bottomSheetView.findViewById(R.id.BtnRestart);
+            scoreTV.setText("Your Score is \n"+currScore + "/10");
+            restartquizbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    currPos= random.nextInt(quizmodalArrayList.size());
+                    setDataToView(currPos);
+                    questionAttempted=1;
+                    currScore=0;
+                    bottomSheetDialog.dismiss();
+                }
+            });
+            bottomSheetDialog.setCancelable(false);
+            bottomSheetDialog.setContentView(bottomSheetView);
+            bottomSheetDialog.show();
+        }
 
 
     }
