@@ -35,10 +35,18 @@ public class MainActivity extends AppCompatActivity {
         quizmodalArrayList = new ArrayList<>();
         random = new Random();
         getQuizQuestions(quizmodalArrayList);
+        currPos = random.nextInt(quizmodalArrayList.size());
+
+
+    }
+    private void setdataToView(int currPos){
 
     }
     private void getQuizQuestions(ArrayList<Quizmodal> quizmodalArrayList) {
-        quizmodalArrayList.add(new Quizmodal("Who invented Java Programming?",""))
+        quizmodalArrayList.add(new Quizmodal("Who invented Java Programming?","Guido van Rossum","James Gosling","Dennis Ritchie","Bjarne Stroustrup","James Gosling"));
+        quizmodalArrayList.add(new Quizmodal(" Which statement is true about Java?","Java is a sequence-dependent programming language","Java is a code dependent programming language","Java is a platform-dependent programming language","Java is a platform-independent programming language","Java is a platform-independent programming language"));
+        quizmodalArrayList.add(new Quizmodal("Which component is used to compile, debug and execute the java programs?","JRE","JIT"," JDK","JVM"," JDK"));
+        quizmodalArrayList.add(new Quizmodal("Which one of the following is not a Java feature?"," Object-oriented"," Use of pointers","Portable","Dynamic and Extensible"," Use of pointers"));
 
     }
 }
