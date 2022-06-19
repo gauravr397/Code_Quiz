@@ -3,10 +3,12 @@ package com.example.code_quiz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,10 +38,67 @@ public class MainActivity extends AppCompatActivity {
         random = new Random();
         getQuizQuestions(quizmodalArrayList);
         currPos = random.nextInt(quizmodalArrayList.size());
+        setDataToView(currPos);
+        option1btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(quizmodalArrayList.get(currPos).getAnswer().trim().toLowerCase().equals(option1btn.getText().toString().trim().toLowerCase())){
+                    currScore++;
+                }
+                questionAttempted++;
+                currPos= random.nextInt(quizmodalArrayList.size());
+                setDataToView(currPos);
+            }
+        });
+
+        option2btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(quizmodalArrayList.get(currPos).getAnswer().trim().toLowerCase().equals(option2btn.getText().toString().trim().toLowerCase())){
+                    currScore++;
+                }
+                questionAttempted++;
+                currPos= random.nextInt(quizmodalArrayList.size());
+                setDataToView(currPos);
+            }
+        });
+
+        option3btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(quizmodalArrayList.get(currPos).getAnswer().trim().toLowerCase().equals(option3btn.getText().toString().trim().toLowerCase())){
+                    currScore++;
+                }
+                questionAttempted++;
+                currPos= random.nextInt(quizmodalArrayList.size());
+                setDataToView(currPos);
+            }
+        });
+
+        option4btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (quizmodalArrayList.get(currPos).getAnswer().trim().toLowerCase().equals(option4btn.getText().toString().trim().toLowerCase())) {
+                    currScore++;
+                }
+                questionAttempted++;
+                currPos = random.nextInt(quizmodalArrayList.size());
+                setDataToView(currPos);
+
+            }
+
+        });
 
 
     }
-    private void setdataToView(int currPos){
+    private void setDataToView(int currPos){
+        questionNumberTv.setText("Question Attempted : "+questionAttempted+"/10");
+
+        questionTV.setText(quizmodalArrayList.get(currPos).getQuestion());
+        option1btn.setText(quizmodalArrayList.get(currPos).getOption1());
+        option2btn.setText(quizmodalArrayList.get(currPos).getOption2());
+        option3btn.setText(quizmodalArrayList.get(currPos).getOption3());
+        option4btn.setText(quizmodalArrayList.get(currPos).getOption4());
 
     }
     private void getQuizQuestions(ArrayList<Quizmodal> quizmodalArrayList) {

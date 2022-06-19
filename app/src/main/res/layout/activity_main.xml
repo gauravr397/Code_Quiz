@@ -8,29 +8,31 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/number_of_questions"
-        android:textAllCaps="false"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:layout_marginTop="105dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
         android:id="@+id/idTVQuestionAttempted"
-        />
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        android:text="@string/number_of_questions"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/idTvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/idTVQuestionAttempted"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
         android:text="@string/question"
         android:textAlignment="center"
-        android:gravity="center"
-        android:textSize="25sp"
-        />
+        android:textColor="@color/teal_700"
+        android:textSize="20sp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
