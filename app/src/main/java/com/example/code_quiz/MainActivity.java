@@ -48,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
         option1btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(quizmodalArrayList.get(currPos).getAnswer().trim().toLowerCase().equals(option1btn.getText().toString().trim().toLowerCase())){
+                if (quizmodalArrayList.get(currPos).getAnswer().trim().toLowerCase().equals(option1btn.getText().toString().trim().toLowerCase())) {
                     currScore++;
                 }
                 questionAttempted++;
-                currPos= random.nextInt(quizmodalArrayList.size());
+                currPos = random.nextInt(quizmodalArrayList.size());
                 setDataToView(currPos);
             }
         });
@@ -60,11 +60,11 @@ public class MainActivity extends AppCompatActivity {
         option2btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(quizmodalArrayList.get(currPos).getAnswer().trim().toLowerCase().equals(option2btn.getText().toString().trim().toLowerCase())){
+                if (quizmodalArrayList.get(currPos).getAnswer().trim().toLowerCase().equals(option2btn.getText().toString().trim().toLowerCase())) {
                     currScore++;
                 }
                 questionAttempted++;
-                currPos= random.nextInt(quizmodalArrayList.size());
+                currPos = random.nextInt(quizmodalArrayList.size());
                 setDataToView(currPos);
             }
         });
@@ -72,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
         option3btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(quizmodalArrayList.get(currPos).getAnswer().trim().toLowerCase().equals(option3btn.getText().toString().trim().toLowerCase())){
+                if (quizmodalArrayList.get(currPos).getAnswer().trim().toLowerCase().equals(option3btn.getText().toString().trim().toLowerCase())) {
                     currScore++;
                 }
                 questionAttempted++;
-                currPos= random.nextInt(quizmodalArrayList.size());
+                currPos = random.nextInt(quizmodalArrayList.size());
                 setDataToView(currPos);
             }
         });
@@ -94,8 +94,26 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+    }
 
-        private void showbottomsheet(){
+
+    private void setDataToView(int currPos){
+        questionNumberTv.setText("Question Attempted : "+questionAttempted+"/10");
+        if(questionAttempted == 10){
+            showBottomSheet();
+        }
+        else {
+
+            questionTV.setText(quizmodalArrayList.get(currPos).getQuestion());
+            option1btn.setText(quizmodalArrayList.get(currPos).getOption1());
+            option2btn.setText(quizmodalArrayList.get(currPos).getOption2());
+            option3btn.setText(quizmodalArrayList.get(currPos).getOption3());
+            option4btn.setText(quizmodalArrayList.get(currPos).getOption4());
+        }
+
+    }
+
+    private void showBottomSheet() {
             BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MainActivity.this);
             View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.score_sheet,(LinearLayout)findViewById(R.id.llscore));
             TextView scoreTV=bottomSheetView.findViewById((R.id.llscore));
@@ -117,17 +135,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-    }
-    private void setDataToView(int currPos){
-        questionNumberTv.setText("Question Attempted : "+questionAttempted+"/10");
 
-        questionTV.setText(quizmodalArrayList.get(currPos).getQuestion());
-        option1btn.setText(quizmodalArrayList.get(currPos).getOption1());
-        option2btn.setText(quizmodalArrayList.get(currPos).getOption2());
-        option3btn.setText(quizmodalArrayList.get(currPos).getOption3());
-        option4btn.setText(quizmodalArrayList.get(currPos).getOption4());
-
-    }
     private void getQuizQuestions(ArrayList<Quizmodal> quizmodalArrayList) {
         quizmodalArrayList.add(new Quizmodal("Who invented Java Programming?","Guido van Rossum","James Gosling","Dennis Ritchie","Bjarne Stroustrup","James Gosling"));
         quizmodalArrayList.add(new Quizmodal(" Which statement is true about Java?","Java is a sequence-dependent programming language","Java is a code dependent programming language","Java is a platform-dependent programming language","Java is a platform-independent programming language","Java is a platform-independent programming language"));
