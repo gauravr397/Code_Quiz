@@ -16,26 +16,25 @@
 
 
     <TextView
-    android:id="@+id/TVScore"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="20dp"
-    android:gravity="center"
-    android:padding="3dp"
-    android:text="@string/your_score_is"
-    android:textAlignment="center"
-    android:textAllCaps="false"
-    android:textColor="@color/purple_200"
-    android:textsize="20sp"
-    android:textstyle="bold"/>
+        android:id="@+id/TVScore"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:padding="3dp"
+        android:text="@string/your_score_is"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_200"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <Button
     android:id="@+id/BtnRestart"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
     android:text="@string/restart_quiz"
-    android:textAllCaps="false">
-    </Button>
+    android:textAllCaps="false"/>
 
 
 </LinearLayout>

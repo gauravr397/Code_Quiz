@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     private void showBottomSheet() {
             BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MainActivity.this);
             View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.score_sheet,(LinearLayout)findViewById(R.id.llscore));
-            TextView scoreTV=bottomSheetView.findViewById((R.id.llscore));
+            TextView scoreTV=bottomSheetView.findViewById((R.id.TVScore));
             Button restartquizbtn = bottomSheetView.findViewById(R.id.BtnRestart);
             scoreTV.setText("Your Score is \n"+currScore + "/10");
             restartquizbtn.setOnClickListener(new View.OnClickListener() {
